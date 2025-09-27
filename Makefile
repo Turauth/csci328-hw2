@@ -1,5 +1,3 @@
-# Author: J. Woychuk
-
 # Define the compiler.
 CXX = g++
 
