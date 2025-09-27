@@ -1,9 +1,10 @@
 #include "list.h"
 #include "tree.h"
+#include <list>
 
 int main()
 {
-    /*
+    // Test list.h.
     List erech (7);
 
     // Make a list of sufficient length and print out the list values.
@@ -32,20 +33,22 @@ int main()
     erech.traverse();
     erech.insert(5, 0);
     erech.traverse();
-    */
+
+    cout << endl;
    
-    Tree laurelin(5);
+    // Test tree.h.
+    Tree laurelin(1);
+    std::list<int> theNineteen = {2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946};
 
-    laurelin.insertNode(laurelin.root, 3);
-    laurelin.insertNode(laurelin.root, 7);
-    laurelin.insertNode(laurelin.root, 10);
-    laurelin.insertNode(laurelin.root, 11);
-    laurelin.insertNode(laurelin.root, 8);
-    laurelin.insertNode(laurelin.root, 9);
+    for (int i : theNineteen) {
+        laurelin.root = laurelin.insertNode(laurelin.root, i);
+        laurelin.traverseTree(laurelin.root);
+        cout << endl;
+    }
 
-    laurelin.traverseTree(laurelin.root);
-
-    cout << laurelin.findHeight(laurelin.root, 5) << endl;
+    if (laurelin.balanceFactor(laurelin.root) == 1 || laurelin.balanceFactor(laurelin.root) == -1) {
+        cout << "The tree's balance factor is " << laurelin.balanceFactor(laurelin.root) << ", so the tree is balanced." << endl;
+    }
 
     return 0;
 }
